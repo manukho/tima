@@ -18,21 +18,14 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     // buttons
     QWidget *buttonwidget = new QWidget();
     QHBoxLayout *buttonlayout = new QHBoxLayout;
+    buttonlayout->setAlignment(Qt::AlignLeft);
 
     QPushButton *newitem = new QPushButton;
     newitem = buttonInit(newitem, "New Item", QString("additem.png"));
-    buttonlayout->addWidget(newitem);
+    buttonlayout->addWidget(newitem, Qt::AlignLeft);
 
-    /*
-    QPixmap buttonImage("argazkiak/flecha.bmp");
-    QIcon Icon;
-    Icon.addPixmap ( buttonImage, QIcon::Normal, QIcon::Off );
-    QPushButton *Button = new QPushButton();
-    Button->setIcon(Icon);
-    Button->setIconSize(QSize(100,100));
-*/
-
-    QPushButton *newsubitem = new QPushButton("new subitem");
+    QPushButton *newsubitem = new QPushButton;
+    newsubitem = buttonInit(newsubitem, "New Subitem", QString("addsubitem.png"));
     buttonlayout->addWidget(newsubitem);
 
     buttonwidget->setLayout(buttonlayout);
@@ -45,8 +38,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 }
 
 QPushButton* MainWindow::buttonInit(QPushButton *button, const char *text, QString filename){
-    button->setText(tr(text));
-    QPixmap image(":/icons/" + filename);
+    button->setToolTip(tr(text));
+    QPixmap image("icons/"+filename);
     QIcon icon;
     icon.addPixmap(image, QIcon::Normal, QIcon::Off);
     button->setIcon(icon);

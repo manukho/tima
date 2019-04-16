@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/icons">
-        <file>icons/additem.png</file>
-        <file>icons/addsubitem.png</file>
-    </qresource>
-</RCC>

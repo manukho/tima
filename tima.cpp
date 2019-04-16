@@ -2,7 +2,6 @@
 
 int main(int argc, char ** argv) {
     Tima tima = Tima(argc, argv);
-    //QResource::registerResource("resources.qrc");
     return 0;
 }
 
