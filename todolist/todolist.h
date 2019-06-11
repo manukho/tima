@@ -1,19 +1,24 @@
 #ifndef TODOLIST_H
 #define TODOLIST_H
 
-#include "tima.h"
 #include "todo.h"
+#include "gui/todotable.h"
 #include <vector>
 
 class TodoList {
 public:
     TodoList();
-    void addTodo(Todo todo);
-    void removeTodo(Todo todo);
+    bool addTodo(Todo todo);
+    bool removeTodo(Todo todo);
+    void setTodoTable(TodoTable *table);
+    int getID();
 
 private:
-    vector<Todo> list;
+    std::vector<Todo> list;
+    TodoTable *todotable = nullptr;
     int getPos(Todo todo);
+    int topID = 1;
+
 };
 
 #endif // TODOLIST_H

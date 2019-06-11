@@ -4,9 +4,9 @@
 #include <iostream>
 #include <filesystem>
 #include "gui/mainwindow.h"
+#include "todolist/todolist.h"
 #include <QApplication>
 #include <QAction>
-#include <iostream>
 #include <fstream>
 #include <QResource>
 
@@ -18,7 +18,7 @@ class Tima {
 
 public:
     Tima(int, char**);
-
+    TodoList *todolist;
 private:
 
 };

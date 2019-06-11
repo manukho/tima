@@ -19,10 +19,13 @@ Tima::Tima(int argc, char** argv) {
         ofstream ofs(todofile.c_str());
     } else {
         cout << todofile << " exists!" << endl;
+        // TODO: read file and populate todolist
+        todolist = new TodoList();
     }
 
     QApplication app(argc, argv);
     MainWindow window;
+    window.setTodoList(todolist);
     window.show();
     app.exec();
 }

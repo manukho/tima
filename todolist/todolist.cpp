@@ -1,21 +1,38 @@
 #include "todolist.h"
 
 TodoList::TodoList(){
-    vector<Todo> list;
+    std::vector<Todo> list;
 }
 
-void TodoList::addTodo(Todo todo){
+bool TodoList::addTodo(Todo todo){
+    if (todo.id == 0){
+        return false;
+    }
     list.push_back(todo);
+    return true;
 }
 
-void TodoList::removeTodo(Todo todo){
-    list.erase(list.begin() + getPos(todo));
+bool TodoList::removeTodo(Todo todo){
+    int pos = getPos(todo);
+    if (pos == -1){ // if it doesn't exist
+        return false;
+    }
+    list.erase(list.begin() + pos);
+    return true;
 }
 
 int TodoList::getPos(Todo todo){
-    for (int i=0; i < list.size(); i++) {
+    for (unsigned long i=0; i < list.size(); i++) {
         if (list.at(i).id == todo.id)
             return i;
     }
     return -1;
+}
+
+void TodoList::setTodoTable(TodoTable *table){
+    todotable = table;
+}
+
+int TodoList::getID(){
+    return topID++;
 }
